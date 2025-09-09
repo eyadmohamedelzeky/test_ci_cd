@@ -13,12 +13,10 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-default_platform(:android)
-
 platform :android do
   desc "Distribute the app to Firebase App Distribution"
   sh "flutter build apk"
-  lane :deploy_to_Firebase do
+  lane :deploy_to_firebase do   # ← هنا خليتها lowercase
     firebase_app_distribution(
       app: ENV["FIREBASE_APP_ID"],
       groups: "testers",
